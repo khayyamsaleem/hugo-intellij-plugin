@@ -18,5 +18,10 @@ Hugo static site generator plugin for Intellij
 1. Fork the repository
 2. Install all required dependencies for your platform (`gradle`, `jdk1.8+`, IntelliJ CE/Ultimate)
 3. If you encounter any errors on `@Getter` or `@Setter` annotations in IntelliJ, install the `lombok` plugin. You may also be asked to enable annotation processing.
-4. Run `gradle build` as you iterate on this codebase to validate the plugin builds.
-5. 
+4. Run `gradle build` as you iterate on this codebase to validate that the plugin builds.
+5. Test out your generated plugin using the zip files built in `./build/distributions/`, using IntelliJ's `Install plugin from disk` capability.
+6. When you are ready to merge back in:
+    - Update the version in the `build.gradle` file in accordance with [SemVer](http://semver.org)
+    - Create a pull request from your fork to `1v0dev/hugo-intellij-plugin:master`, tagging any issues that your change closes in your commit messages. (_e.g. `git commit -m "Closes #53"`_)
+    - Once your pull request is reviewed and approved and merged, follow up with `@1v0dev` to ensure that the new version is uploaded to the IntelliJ marketplace.
+7. 
