@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 public class HugoConfigurationFactory extends ConfigurationFactory {
 
     private static final String FACTORY_NAME = "Hugo configuration factory";
+    private static final String RUN_CONFIGURATION_NAME = "Hugo";
 
     public HugoConfigurationFactory(@NotNull ConfigurationType type) {
         super(type);
@@ -18,7 +19,7 @@ public class HugoConfigurationFactory extends ConfigurationFactory {
     @NotNull
     @Override
     public RunConfiguration createTemplateConfiguration(@NotNull Project project) {
-        return new HugoRunConfiguration(project, this, "Hugo");
+        return new HugoRunConfiguration(project, this, RUN_CONFIGURATION_NAME);
     }
 
     @NotNull

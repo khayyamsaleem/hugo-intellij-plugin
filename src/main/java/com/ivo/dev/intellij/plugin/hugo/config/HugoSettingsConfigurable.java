@@ -10,11 +10,11 @@ import org.jetbrains.annotations.Nullable;
 
 public class HugoSettingsConfigurable implements SearchableConfigurable {
 
-    private HugoSettings hugoSettings;
+    private final HugoSettings hugoSettings;
     private HugoSettingsEditor hugoSettingsEditor;
-    private Project project;
+    private final Project project;
 
-    public HugoSettingsConfigurable(@NotNull Project project) {
+    public HugoSettingsConfigurable(@NotNull final Project project) {
         this.project = project;
         hugoSettings = HugoSettings.getInstance(project);
     }

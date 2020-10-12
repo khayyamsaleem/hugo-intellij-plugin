@@ -11,7 +11,12 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
+/**
+ * Settings editor for `hugo run` configurations
+ */
 public class HugoRunSettingsEditor extends SettingsEditor<HugoRunConfiguration> {
+    private static final String FOLDER_BROWSER_TITLE = "Select Hugo Project Directory";
+
     private JPanel myPanel;
     private JTextField argumentsField;
     private JRadioButton hugoServerRadioButton;
@@ -28,8 +33,12 @@ public class HugoRunSettingsEditor extends SettingsEditor<HugoRunConfiguration> 
         }
 
         FileChooserDescriptor fcd = FileChooserDescriptorFactory.createSingleFolderDescriptor();
-        customProjectDir.addBrowseFolderListener("Select Hugo Project Directory",
-                null, s.getProject(), fcd);
+        customProjectDir.addBrowseFolderListener(
+                FOLDER_BROWSER_TITLE,
+                null,
+                s.getProject(),
+                fcd
+        );
 
         if (StringUtils.isNotEmpty(s.getCustomProjectDir())) {
             customProjectDir.setText(s.getCustomProjectDir());
@@ -48,8 +57,5 @@ public class HugoRunSettingsEditor extends SettingsEditor<HugoRunConfiguration> 
     protected JComponent createEditor() {
         return myPanel;
     }
-
-
-
 
 }

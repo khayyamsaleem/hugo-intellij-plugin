@@ -1,23 +1,17 @@
 package com.ivo.dev.intellij.plugin.hugo.action;
 
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * Stores responses from NewActionDialog form
+ */
+@Getter
+@Setter
 public class NewActionDTO {
 
     private String fileName;
     private String arguments;
+    private boolean bundle;
 
-    public String getArguments() {
-        return arguments;
-    }
-
-    public void setArguments(String arguments) {
-        this.arguments = arguments;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
 }

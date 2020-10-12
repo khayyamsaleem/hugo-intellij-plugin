@@ -20,7 +20,7 @@ import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class HugoRunConfiguration extends RunConfigurationBase {
+public class HugoRunConfiguration extends RunConfigurationBase<String> {
 
     private String arguments;
     private boolean runServer = true;
@@ -39,11 +39,6 @@ public class HugoRunConfiguration extends RunConfigurationBase {
     @Override
     public SettingsEditor<? extends RunConfiguration> getConfigurationEditor() {
         return new HugoRunSettingsEditor();
-    }
-
-    @Override
-    public void checkConfiguration() throws RuntimeConfigurationException {
-
     }
 
     @Nullable

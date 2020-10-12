@@ -11,16 +11,18 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 
 public class NewActionDialog extends DialogWrapper {
+    private static final String NEW_ACTION_TITLE = "Hugo New";
     private JPanel dialogPanel;
     private JTextField fileNameField;
     private JTextField argumentsField;
+    private JCheckBox bundleCheckbox;
     private NewActionDTO dto;
 
     protected NewActionDialog(@Nullable Project project, NewActionDTO dto) {
         super(project);
         this.dto = dto;
         init();
-        setTitle("Hugo New");
+        setTitle(NEW_ACTION_TITLE);
         setAutoAdjustable(true);
 
         HugoSettings hugoSettings = HugoSettings.getInstance(project);
@@ -39,6 +41,7 @@ public class NewActionDialog extends DialogWrapper {
     protected void doOKAction() {
         dto.setFileName(fileNameField.getText());
         dto.setArguments(argumentsField.getText());
+        dto.setBundle(bundleCheckbox.isSelected());
         super.doOKAction();
     }
 

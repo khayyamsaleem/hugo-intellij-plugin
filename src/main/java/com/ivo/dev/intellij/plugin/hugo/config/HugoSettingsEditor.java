@@ -11,13 +11,15 @@ import javax.swing.JTextField;
 import org.apache.commons.lang.StringUtils;
 
 public class HugoSettingsEditor {
+    private static final String BROWSE_HUGO_EXE_TITLE = "Select Hugo Executable";
+
     private JCheckBox pathToHugoExecutableCheckBox;
     private TextFieldWithBrowseButton customHugoPathField;
     private JPanel settingsPanel;
     private JTextField defaultHugoNewOptionsField;
-    private HugoSettings hugoSettings;
+    private final HugoSettings hugoSettings;
 
-    public HugoSettingsEditor(HugoSettings hugoSettings, Project project) {
+    public HugoSettingsEditor(final HugoSettings hugoSettings, final Project project) {
         this.hugoSettings = hugoSettings;
         pathToHugoExecutableCheckBox.setSelected(hugoSettings.isUseCustomPath());
         customHugoPathField.setEnabled(hugoSettings.isUseCustomPath());
@@ -33,7 +35,7 @@ public class HugoSettingsEditor {
             actionEvent -> customHugoPathField.setEnabled(pathToHugoExecutableCheckBox.isSelected()));
 
         FileChooserDescriptor fcd = FileChooserDescriptorFactory.createSingleFileDescriptor();
-        customHugoPathField.addBrowseFolderListener("Select Hugo Executable", null, project, fcd);
+        customHugoPathField.addBrowseFolderListener(BROWSE_HUGO_EXE_TITLE, null, project, fcd);
     }
 
     public JPanel getSettingsPanel() {
